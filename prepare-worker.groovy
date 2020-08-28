@@ -5,10 +5,10 @@ properties([
 node {
     withCredentials([sshUserPrivateKey(credentialsId: 'jenkins-master', keyFileVariable: 'SSHKEY', passphraseVariable: '', usernameVariable: 'SSHUSERNAME')]) {
         stage('Init') {
-            sh 'ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@{NodeIp} yum install openjdk git -y'
+            sh 'ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@${NodeIp} yum install openjdk git -y'
         }
         stage ('Install git') {
-            sh 'ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@{NodeIp} yum install git -y'
+            sh 'ssh -o StrictHostKeyChecking=no -i $SSHKEY $SSHUSERNAME@$NodeIp} yum install git -y'
         }
     }
 }
