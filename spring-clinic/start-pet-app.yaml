@@ -1,0 +1,6 @@
+---
+    - hosts: all
+    
+      tasks:
+    - name: start pet-clinic
+      shell: "java -jar target/*.jar"

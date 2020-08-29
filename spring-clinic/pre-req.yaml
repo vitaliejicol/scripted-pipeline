@@ -1,0 +1,27 @@
+---
+    - hosts: all
+    
+    
+      tasks:
+        - name: Install prerequisites
+        package:
+          name:
+          - vim
+          - git
+          - openjdk:8-jdk-alpine
+          state: present
+          
+          
+          
+          
+      roles:
+        - role: ansible-role-clone-repo
+          gh_repo: git@github.com:spring-projects/spring-petclinic.git
+    
+      - name: Install prerequisites
+        package:
+          name:
+          - vim
+          - git
+          - openjdk:8-jdk-alpine
+          state: present

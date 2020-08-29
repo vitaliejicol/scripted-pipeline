@@ -1,0 +1,8 @@
+---
+    - hosts: all
+    
+      tasks:
+      - name: Pull Flaskex
+        git:
+          repo: "{{ spring-petclinic-repo }}"
+          dest: /var/www/spring-petclinic/
