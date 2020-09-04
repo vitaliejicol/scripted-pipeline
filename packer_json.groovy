@@ -1,17 +1,19 @@
-def aws_region_var = ''
-def environment = ''
+properties([
+    parameters([
+        choice(choices: ['dev', 'qa', 'prod'], description: '', name: 'environment')
+    ])
+])
 
-if(params.environment ==~ "dev-*"){
+def aws_region_var = ''
+
+if(params.environment == "dev"){
     aws_region_var = "us-east-1"
-    environment = 'dev'
 }
-else if(params.environment ==~ "qa-*"){
+else if(params.environment == "qa"){
     aws_region_var = "us-east-2"
-    environment = 'qa'
 }
-else if(params.environment ==~ "prod-*"){
+else if(params.environment == "prod"){
     aws_region_var = "us-west-2"
-    environment = 'prod'
 }
 
 node {
